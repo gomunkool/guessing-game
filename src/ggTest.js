@@ -17,19 +17,10 @@ class GuessingGame {
     console.log(this.mid)
     console.log(this.max)
     this.mid =
-      Math.round((this.arr[this.arr[this.max]] - this.arr[this.min]) / 2) +
+      Math.floor((this.arr[this.arr[this.max - 1]] - this.arr[this.min]) / 2) +
       this.arr[this.min]
     console.log(this.mid)
     return this.mid
-    // if (this.mid === this.result) {
-    //   return this.mid
-    // }
-    // if (this.mid > this.result) {
-    //   this.lower()
-    // }
-    // if (this.mid < this.result) {
-    //   this.greater()
-    // }
   }
 
   lower() {
@@ -50,4 +41,34 @@ class GuessingGame {
   }
 }
 
-module.exports = GuessingGame
+const number = 18
+const game = new GuessingGame()
+game.setRange(0, 5442)
+
+let result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.greater()
+result = game.guess()
+game.greater()
+result = game.guess()
+game.lower()
+result = game.guess()
+game.lower()
+result = game.guess()
+
+// expect(result).to.equal(number)
